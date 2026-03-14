@@ -802,4 +802,26 @@ font-size:12px;
 
 }
 
+.social-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.social-btn:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
 }
