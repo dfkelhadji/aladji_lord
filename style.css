@@ -1,5 +1,7 @@
 /* ================= RESET GLOBAL ================= */
-
+html {
+  scroll-behavior: smooth;
+}
 /* enlève les marges par défaut du navigateur */
 
 *{
