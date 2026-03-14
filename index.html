@@ -1,505 +1,365 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <!-- Configuration du site -->
 
-<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aladji Lord - Photographe spécialisé dans les mariages, shootings et projets corporate à Thiès, Sénégal"
+    />
+    <meta name="theme-color" content="#000000" />
 
-<!-- Configuration du site -->
+    <title>Aladji Lord | Photographe</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Lien vers le fichier CSS -->
 
-<title>Aladji Lord | Photographe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<!-- Lien vers le fichier CSS -->
+  <body>
+    <!-- ================= HEADER ================= -->
 
-<link rel="stylesheet" href="style.css">
+    <header>
+      <!-- ===== Barre de navigation ===== -->
 
-</head>
+      <div class="navbar">
+        <!-- Logo + Nom -->
 
+        <div class="logo-box" onclick="scrollToTop()" style="cursor: pointer">
+          <img src="images/logo.png" class="logo" />
 
+          <h1>Aladji Lord</h1>
+        </div>
 
-<body>
+        <!-- Menu hamburger pour mobile -->
 
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
+        <!-- Menu de navigation -->
 
-<!-- ================= HEADER ================= -->
+        <nav id="menu">
+          <a href="#portfolio">Galerie</a>
 
-<header>
+          <a href="#reservation">Réserver</a>
 
+          <a href="#footer">Contact</a>
+        </nav>
+      </div>
 
-<!-- ===== Barre de navigation ===== -->
+      <!-- ===== Slider d'accueil ===== -->
 
-<div class="navbar">
+      <div class="hero">
+        <!-- Images du slider -->
 
-<!-- Logo + Nom -->
+        <img src="images/hero1.jpg" class="hero-slide active" />
 
-<div class="logo-box">
+        <img src="images/hero2.jpg" class="hero-slide" />
 
-<img src="images/logo.png" class="logo">
+        <img src="images/hero3.jpg" class="hero-slide" />
 
-<h1>Aladji Lord</h1>
+        <img src="images/hero4.jpg" class="hero-slide" />
 
-</div>
+        <img src="images/hero5.jpg" class="hero-slide" />
 
+        <!-- Texte sur l'image -->
 
-<!-- Menu hamburger pour mobile -->
+        <h2 class="hero-text">Photographe • Vidéaste • Pilote de drone</h2>
+      </div>
+    </header>
 
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <!-- ================= PORTFOLIO ================= -->
 
+    <section id="portfolio" class="reveal">
+      <h2>Nos réalisations</h2>
 
-<!-- Menu de navigation -->
+      <!-- ===== Catégorie mariage ===== -->
 
-<nav id="menu">
+      <h3>Mariage / Baptême</h3>
 
-<a href="#about">À propos</a>
+      <div class="portfolio">
+        <button onclick="slideLeft('mariage')" class="slide-btn">
+          &#10094;
+        </button>
 
-<a href="#portfolio">Galerie</a>
+        <div class="slider" id="mariage">
+          <!-- 3 premières photos visibles -->
+          <img src="images/mariage1.jpg" onclick="openLightbox(this)" />
+          <img src="images/mariage2.jpg" onclick="openLightbox(this)" />
+          <img src="images/mariage3.jpg" onclick="openLightbox(this)" />
 
-<a href="#reservation">Réserver</a>
+          <!-- Les autres apparaissent avec le slide -->
+          <img src="images/mariage4.jpg" onclick="openLightbox(this)" />
+          <img src="images/mariage5.jpg" onclick="openLightbox(this)" />
+          <img src="images/mariage6.jpg" onclick="openLightbox(this)" />
+        </div>
 
-<a href="#contact">Contact</a>
+        <button onclick="slideRight('mariage')" class="slide-btn">
+          &#10095;
+        </button>
+      </div>
 
-</nav>
+      <!-- ===== Catégorie shooting ===== -->
+
+      <h3>Shooting</h3>
+
+      <div class="portfolio">
+        <button onclick="slideLeft('shoot')" class="slide-btn">&#10094;</button>
+
+        <div class="slider" id="shoot">
+          <img src="images/shoot1.jpg" onclick="openLightbox(this)" />
+          <img src="images/shoot2.jpg" onclick="openLightbox(this)" />
+          <img src="images/shoot3.jpg" onclick="openLightbox(this)" />
+          <img src="images/shoot4.jpg" onclick="openLightbox(this)" />
+          <img src="images/shoot5.jpg" onclick="openLightbox(this)" />
+          <img src="images/shoot6.jpg" onclick="openLightbox(this)" />
+        </div>
+
+        <button onclick="slideRight('shoot')" class="slide-btn">
+          &#10095;
+        </button>
+      </div>
+
+      <!-- ===== Catégorie corporate ===== -->
+
+      <h3>Corporate</h3>
+
+      <div class="portfolio">
+        <button onclick="slideLeft('corp')" class="slide-btn">&#10094;</button>
+
+        <div class="slider" id="corp">
+          <img src="images/corp1.jpg" onclick="openLightbox(this)" />
+          <img src="images/corp2.jpg" onclick="openLightbox(this)" />
+          <img src="images/corp3.jpg" onclick="openLightbox(this)" />
+        </div>
+
+        <button onclick="slideRight('corp')" class="slide-btn">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- ================= RESERVATION ================= -->
+
+    <section id="reservation" class="reveal">
+      <h2>Réserver un shooting</h2>
+
+      <div class="booking-container">
+        <!-- ===== Formulaire client ===== -->
+
+        <div class="form-side">
+          <input type="text" id="nom" placeholder="Nom" />
+
+          <input type="tel" id="telephone" placeholder="Téléphone" />
+
+          <select id="service">
+            <option>Shooting</option>
+            <option>Mariage / Baptême</option>
+            <option>Corporate</option>
+          </select>
 
-</div>
+          <input type="text" id="lieu" placeholder="Studio ou Domicile" />
+
+          <input type="date" id="date" placeholder="Date" />
 
+          <input type="time" id="heure" value="10:00" />
+
+          <textarea
+            id="message"
+            placeholder="Informations supplémentaires"
+          ></textarea>
 
+          <button onclick="sendWhatsApp()">Envoyer la réservation</button>
+        </div>
+      </div>
+    </section>
 
-<!-- ===== Slider d'accueil ===== -->
+    <!-- ================= FOOTER ================= -->
 
-<div class="hero">
+    <footer id="footer">
+      <div class="footer-content">
+        <!-- À propos -->
+        <div class="footer-section">
+          <h3>À propos</h3>
+          <p>
+            Je suis photographe spécialisé dans les mariages, shootings et
+            projets corporate. Bienvenue sur mon portfolio.
+          </p>
+        </div>
 
-<!-- Images du slider -->
+        <!-- Localisation et Contact -->
+        <div class="footer-section">
+          <h3>Localisation</h3>
+          <div class="contact-info">
+            <p><strong>📍 Thiès, Sénégal</strong></p>
+            <p>Grand Standing</p>
+            <p>
+              <strong>📞</strong>
+              <a href="tel:+221776299904">+221 77 629 9904</a>
+            </p>
+            <p>
+              <strong>📧</strong>
+              <a href="mailto:aladjilord01@gmail.com">aladjilord01@gmail.com</a>
+            </p>
+          </div>
+        </div>
 
-<img src="images/hero1.jpg" class="hero-slide active">
+        <!-- Réseaux sociaux -->
+        <div class="footer-section">
+          <h3>Réseaux sociaux</h3>
+          <div class="social-links">
+            <a href="https://www.instagram.com/aladji_lord" target="_blank"
+              >Instagram</a
+            >
+            <a href="https://www.tiktok.com/@aladji_lord" target="_blank"
+              >TikTok</a
+            >
+            <a href="https://wa.me/221776299904" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+      </div>
 
-<img src="images/hero2.jpg" class="hero-slide">
+      <div class="footer-bottom">
+        <p>© 2026 Aladji Lord. Tous droits réservés.</p>
+      </div>
+    </footer>
 
-<img src="images/hero3.jpg" class="hero-slide">
+    <!-- ================= LIGHTBOX (plein écran photo) ================= -->
 
-<img src="images/hero4.jpg" class="hero-slide">
+    <div id="lightbox">
+      <span onclick="closeLightbox()">✖</span>
 
-<img src="images/hero5.jpg" class="hero-slide">
+      <img id="lightbox-img" />
+    </div>
 
+    <script>
+      /* ================= SLIDER HEADER ================= */
 
-<!-- Texte sur l'image -->
+      /* change l'image toutes les 2 secondes */
 
-<h2 class="hero-text">
+      let slides = document.querySelectorAll(".hero-slide");
 
-Photographe • Vidéaste • Pilote de drone
+      let index = 0;
 
-</h2>
+      setInterval(() => {
+        slides[index].classList.remove("active");
 
-</div>
+        index = (index + 1) % slides.length;
 
-</header>
+        slides[index].classList.add("active");
+      }, 2000);
 
+      /* ================= MENU MOBILE ================= */
 
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("active");
+      }
+
+      /* ================= SLIDER PORTFOLIO ================= */
 
-<!-- ================= SECTION A PROPOS ================= -->
+      function slideLeft(id) {
+        document.getElementById(id).scrollLeft -= 350;
+      }
 
-<section id="about" class="reveal">
-
-<h2>À propos</h2>
-
-<p>
-
-Bienvenue sur mon portfolio.  
-Je suis photographe spécialisé dans les mariages, shootings et projets corporate.
-
-</p>
-
-</section>
-
-
-
-<!-- ================= PORTFOLIO ================= -->
-
-<section id="portfolio" class="reveal">
-
-<h2>Nos réalisations</h2>
-
-
-
-<!-- ===== Catégorie mariage ===== -->
-
-<h3>Mariage / Baptême</h3>
-
-<div class="portfolio">
-
-<button onclick="slideLeft('mariage')" class="slide-btn">&#10094;</button>
-
-<div class="slider" id="mariage">
-
-<!-- 3 premières photos visibles -->
-<img src="images/mariage1.jpg" onclick="openLightbox(this)">
-<img src="images/mariage2.jpg" onclick="openLightbox(this)">
-<img src="images/mariage3.jpg" onclick="openLightbox(this)">
-
-<!-- Les autres apparaissent avec le slide -->
-<img src="images/mariage4.jpg" onclick="openLightbox(this)">
-<img src="images/mariage5.jpg" onclick="openLightbox(this)">
-<img src="images/mariage6.jpg" onclick="openLightbox(this)">
-
-</div>
-
-<button onclick="slideRight('mariage')" class="slide-btn">&#10095;</button>
-
-</div>
-
-
-
-<!-- ===== Catégorie shooting ===== -->
-
-<h3>Shooting</h3>
-
-<div class="portfolio">
-
-<button onclick="slideLeft('shoot')" class="slide-btn">&#10094;</button>
-
-<div class="slider" id="shoot">
-
-<img src="images/shoot1.jpg" onclick="openLightbox(this)">
-<img src="images/shoot2.jpg" onclick="openLightbox(this)">
-<img src="images/shoot3.jpg" onclick="openLightbox(this)">
-<img src="images/shoot4.jpg" onclick="openLightbox(this)">
-<img src="images/shoot5.jpg" onclick="openLightbox(this)">
-<img src="images/shoot6.jpg" onclick="openLightbox(this)">
-
-</div>
-
-<button onclick="slideRight('shoot')" class="slide-btn">&#10095;</button>
-
-</div>
-
-
-
-<!-- ===== Catégorie corporate ===== -->
-
-<h3>Corporate</h3>
-
-<div class="portfolio">
-
-<button onclick="slideLeft('corp')" class="slide-btn">&#10094;</button>
-
-<div class="slider" id="corp">
-
-<img src="images/corp1.jpg" onclick="openLightbox(this)">
-<img src="images/corp2.jpg" onclick="openLightbox(this)">
-<img src="images/corp3.jpg" onclick="openLightbox(this)">
-
-</div>
-
-<button onclick="slideRight('corp')" class="slide-btn">&#10095;</button>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= RESERVATION ================= -->
-
-<section id="reservation" class="reveal">
-
-<h2>Réserver un shooting</h2>
-
-<div class="booking-container">
-
-
-
-<!-- ===== Formulaire client ===== -->
-
-<div class="form-side">
-
-<input type="text" id="nom" placeholder="Nom">
-
-<input type="tel" id="telephone" placeholder="Téléphone">
-
-<select id="service">
-
-<option>Shooting</option>
-<option>Mariage / Baptême</option>
-<option>Corporate</option>
-
-</select>
-
-<select id="heure">
-
-<option>10:00</option>
-<option>12:00</option>
-<option>14:00</option>
-<option>16:00</option>
-
-</select>
-
-<textarea id="message" placeholder="Informations supplémentaires"></textarea>
-
-<button onclick="sendWhatsApp()">Envoyer la réservation</button>
-
-</div>
-
-
-
-<!-- ===== Calendrier ===== -->
-
-<div class="calendar-side">
-
-<div id="calendar"></div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact" class="reveal">
-
-<h2>Contact</h2>
-
-<div class="contact-buttons">
-
-<a href="https://www.instagram.com/aladji_lord" class="contact-btn" target="_blank">
-Instagram
-</a>
-
-<a href="https://www.tiktok.com/@aladji_lord" class="contact-btn" target="_blank">
-TikTok
-</a>
-
-<a href="mailto:aladjilord01@gmail.com" class="contact-btn">
-Email
-</a>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<p>© 2026 Aladji Lord</p>
-
-</footer>
-
-
-
-<!-- ================= LIGHTBOX (plein écran photo) ================= -->
-
-<div id="lightbox">
-
-<span onclick="closeLightbox()">✖</span>
-
-<img id="lightbox-img">
-
-</div>
-
-
-
-<script>
-
-
-
-/* ================= SLIDER HEADER ================= */
-
-/* change l'image toutes les 1 seconde */
-
-let slides=document.querySelectorAll(".hero-slide")
-
-let index=0
-
-setInterval(()=>{
-
-slides[index].classList.remove("active")
-
-index=(index+1)%slides.length
-
-slides[index].classList.add("active")
-
-},2000)
-
-
-
-/* ================= MENU MOBILE ================= */
-
-function toggleMenu(){
-
-document.getElementById("menu").classList.toggle("active")
-
-}
-
-
-
-/* ================= SLIDER PORTFOLIO ================= */
-
-function slideLeft(id){
-
-document.getElementById(id).scrollLeft -= 350
-
-}
-
-function slideRight(id){
-
-document.getElementById(id).scrollLeft += 350
-
-}
-
-
-
-/* ================= LIGHTBOX PHOTO ================= */
-
-function openLightbox(img){
-
-document.getElementById("lightbox").style.display="flex"
-
-document.getElementById("lightbox-img").src=img.src
-
-}
-
-function closeLightbox(){
-
-document.getElementById("lightbox").style.display="none"
-
-}
-
-
-
-/* ================= ANIMATION SCROLL ================= */
-
-function reveal(){
-
-let reveals=document.querySelectorAll(".reveal")
-
-for(let i=0;i<reveals.length;i++){
-
-let windowHeight=window.innerHeight
-
-let elementTop=reveals[i].getBoundingClientRect().top
-
-if(elementTop < windowHeight-100){
-
-reveals[i].classList.add("active")
-
-}
-
-}
-
-}
-
-window.addEventListener("scroll",reveal)
-
-
-
-/* ================= CALENDRIER ================= */
-
-/* jours déjà réservés */
-
-// ================= CALENDRIER =================
-
-// récupérer les jours déjà réservés dans le navigateur
-let bookedDays = JSON.parse(localStorage.getItem("bookedDays")) || [];
-
-let calendar = document.getElementById("calendar");
-
-let selectedDate = null;
-
-// générer les jours du mois
-for (let i = 1; i <= 30; i++) {
-
-let day = document.createElement("div");
-
-day.classList.add("day");
-
-day.innerText = i;
-
-
-// si jour déjà réservé
-if (bookedDays.includes(i)) {
-
-day.classList.add("booked");
-
-}
-
-
-// sinon jour sélectionnable
-else {
-
-day.onclick = function () {
-
-document.querySelectorAll(".day").forEach(d =>
-d.classList.remove("selected")
-);
-
-day.classList.add("selected");
-
-selectedDate = i;
-
-};
-
-}
-
-calendar.appendChild(day);
-
-}
-
-
-
-// ================= WHATSAPP =================
-
-function sendWhatsApp(){
-
-let nom = document.getElementById("nom").value;
-
-let tel = document.getElementById("telephone").value;
-
-let service = document.getElementById("service").value;
-
-let heure = document.getElementById("heure").value;
-
-let message = document.getElementById("message").value;
-
-
-// vérifier si une date est choisie
-if(!selectedDate){
-
-alert("Veuillez choisir une date");
-
-return;
-
-}
-
-
-// ajouter la date dans les réservations
-bookedDays.push(selectedDate);
-
-// sauvegarder dans le navigateur
-localStorage.setItem("bookedDays", JSON.stringify(bookedDays));
-
-
-// message WhatsApp
-let text = "Nouvelle réservation:%0A"
-+"Nom: "+nom+"%0A"
-+"Téléphone: "+tel+"%0A"
-+"Service: "+service+"%0A"
-+"Date: "+selectedDate+"%0A"
-+"Heure: "+heure+"%0A"
-+"Message: "+message;
-
-
-// ouvrir WhatsApp
-window.open("https://wa.me/221776299904?text="+text);
-
-}
-
-</script>
-
-</body>
-
+      function slideRight(id) {
+        document.getElementById(id).scrollLeft += 350;
+      }
+
+      /* ================= LIGHTBOX PHOTO ================= */
+
+      function openLightbox(img) {
+        document.getElementById("lightbox").style.display = "flex";
+
+        document.getElementById("lightbox-img").src = img.src;
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+      }
+
+      /* ================= ANIMATION SCROLL ================= */
+
+      function reveal() {
+        let reveals = document.querySelectorAll(".reveal");
+
+        for (let i = 0; i < reveals.length; i++) {
+          let windowHeight = window.innerHeight;
+
+          let elementTop = reveals[i].getBoundingClientRect().top;
+
+          if (elementTop < windowHeight - 100) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", reveal);
+
+      /* ================= WHATSAPP ================= */
+
+      function sendWhatsApp() {
+        let nom = document.getElementById("nom").value;
+
+        let tel = document.getElementById("telephone").value;
+
+        let service = document.getElementById("service").value;
+
+        let date = document.getElementById("date").value;
+
+        let heure = document.getElementById("heure").value;
+
+        let message = document.getElementById("message").value;
+
+        // vérifier si tous les champs obligatoires sont remplis
+        if (!nom || !tel || !date) {
+          alert(
+            "Veuillez remplir tous les champs obligatoires (Nom, Téléphone, Date)",
+          );
+
+          return;
+        }
+
+        // Convertir la date au format français
+        let dateObj = new Date(date);
+        let dateFormatted = dateObj.toLocaleDateString("fr-FR");
+
+        // message WhatsApp
+        let text =
+          "Nouvelle réservation:%0A" +
+          "Nom: " +
+          nom +
+          "%0A" +
+          "Téléphone: " +
+          tel +
+          "%0A" +
+          "Service: " +
+          service +
+          "%0A" +
+          "Date: " +
+          dateFormatted +
+          "%0A" +
+          "Heure: " +
+          heure +
+          "%0A" +
+          "Message: " +
+          message;
+
+        // ouvrir WhatsApp
+        window.open("https://wa.me/221776299904?text=" + text);
+
+        // Réinitialiser le formulaire
+        document.getElementById("nom").value = "";
+        document.getElementById("telephone").value = "";
+        document.getElementById("service").value = "Shooting";
+        document.getElementById("date").value = "";
+        document.getElementById("heure").value = "10:00";
+        document.getElementById("message").value = "";
+      }
+
+      /* ================= SCROLL TO TOP ================= */
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
 </html>
